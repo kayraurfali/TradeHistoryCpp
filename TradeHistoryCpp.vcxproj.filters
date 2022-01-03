@@ -1,34 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
+    <Filter Include="Source">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Libs">
+      <UniqueIdentifier>{cb44e22f-96cd-49d5-b944-dd542773b964}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{5d35c8d5-d53b-4ab2-962f-b82c257a2ce7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Shaders">
+      <UniqueIdentifier>{5e1410c9-351e-42e8-9d23-dcca8d3b5aef}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="App.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="src\gui\button.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\core\gui_handler.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\font.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\shader_loader.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\texture_2d.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="ext\lib\glew32.lib" />
-    <Library Include="ext\lib\glfw3.lib" />
+    <Library Include="ext\lib\glfw3.lib">
+      <Filter>Libs</Filter>
+    </Library>
+    <Library Include="ext\lib\glew32.lib">
+      <Filter>Libs</Filter>
+    </Library>
+    <Library Include="ext\lib\freetype.lib">
+      <Filter>Libs</Filter>
+    </Library>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\gui\button.h">
-      <Filter>Header Files</Filter>
+    <None Include=".gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="App.h">
+      <Filter>Source</Filter>
     </ClInclude>
+    <ClInclude Include="src\core\gui_handler.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\gui_components.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\color.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\font.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\shader_loader.h" />
+    <ClInclude Include="src\graphics\texture_2d.h" />
   </ItemGroup>
 </Project>

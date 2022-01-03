@@ -3,7 +3,11 @@
 #include <iostream>
 #include <chrono>
 
-#include "App.h"
+#include <App.h>
+#include <graphics/font.h>
+#include <graphics/shader_loader.h>
+
+using namespace trade_history;
 
 using app_clock = std::chrono::steady_clock;
 using app_time = app_clock::time_point;
@@ -29,20 +33,18 @@ long long elapsed_time = 0;
 int updates = 0;
 int frames = 0;
 
-App *app = nullptr;
+trade_history::App *app = nullptr;
 
 int main()
 {
 	if (!setup()) exitApp();
 
+	shader_loader::get_instance().load("shaders/text_shader.vert", "shaders/text_shader.frag");
 	app = new App();
-
 	time_end = app_clock::now();
 
 	do
 	{
-		glClear(GL_COLOR_BUFFER_BIT);
-
 		time_start = app_clock::now();
 		app_duration delta_time = time_start - time_end;
 		time_end = time_start;
@@ -82,6 +84,8 @@ void update()
 
 void render()
 {
+	glClear(GL_COLOR_BUFFER_BIT);
+
 	app->render();
 }
 
