@@ -1,6 +1,6 @@
 #pragma once
 
-#include <graphics/font.h>
+#include <core/gui_handler.h>
 
 namespace trade_history
 {
@@ -12,8 +12,9 @@ namespace trade_history
 
 		void update();
 		void render();
+
 	private:
-		unsigned int VAO, VBO;
-		font *font_d;
+		gui_handler &handler;
+		entity_id id;
 	};
 }

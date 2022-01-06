@@ -12,6 +12,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp" />
+    <ClCompile Include="src\core\component_pool.cpp" />
+    <ClCompile Include="src\core\gui_components.cpp" />
+    <ClCompile Include="src\graphics\color.cpp" />
     <ClCompile Include="src\graphics\font.cpp" />
     <ClCompile Include="src\core\gui_handler.cpp" />
     <ClCompile Include="main.cpp" />
@@ -25,12 +28,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
+    <ClInclude Include="src\core\component_pool.h" />
     <ClInclude Include="src\graphics\color.h" />
     <ClInclude Include="src\graphics\font.h" />
     <ClInclude Include="src\core\gui_components.h" />
     <ClInclude Include="src\core\gui_handler.h" />
     <ClInclude Include="src\graphics\shader_loader.h" />
     <ClInclude Include="src\graphics\texture_2d.h" />
+    <ClInclude Include="src\util\types.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
@@ -79,13 +84,15 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <WarningLevel>Level4</WarningLevel>
+      <WarningLevel>Level2</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <Optimization>Disabled</Optimization>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalIncludeDirectories>$(ProjectDir)\src;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

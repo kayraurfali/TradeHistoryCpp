@@ -4,13 +4,13 @@ namespace trade_history
 {
 	struct color
 	{
+	public:
 		static color *make_color(int r, int g, int b, int a)
 		{
 			return new color(r / 255.0f, g / 255.0f, b / 255.0f, a / 255.0f);
 		}
 	private:
 		color(float r, float g, float b, float a);
-
 		float r, g, b, a;
 	};
 

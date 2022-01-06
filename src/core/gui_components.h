@@ -1,6 +1,8 @@
 #pragma once
 
-#include <color.h>
+#include <graphics/color.h>
+#include <graphics/font.h>
+#include <util/types.h>
 #include <string>
 
 namespace trade_history
@@ -22,6 +24,9 @@ namespace trade_history
 	/*
 		These 2 should not be used as a component as they are the base components.
 	*/
+
+	struct component_base {};
+
 	struct s_padding // internal padding for texts
 	{
 		int top, left, right, bottom;
@@ -34,15 +39,20 @@ namespace trade_history
 	};
 
 	// === SHAPE COMPONENTS === //
+	static u32 s_component_id_counter = 0;
 
 	struct rectangle
 	{
+		static u32 component_id;
+
 		s_position position;
 		int width, height;
 	};
 
 	struct circle
 	{
+		static u32 component_id;
+
 		s_position pos;
 		int radius;
 	};
@@ -51,11 +61,21 @@ namespace trade_history
 
 	struct style
 	{
+		static u32 component_id;
+
 		color *text_color;
 		color *background_color;
 
-		std::string text;
-		
+		const char* text;
+		font text_font;
 		text_alignment alignment;
+	};
+	
+	using click_callback = void(*)();
+	struct clickable
+	{
+		static u32 component_id;
+
+		click_callback on_click;
 	};
 }

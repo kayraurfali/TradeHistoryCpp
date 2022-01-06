@@ -19,21 +19,21 @@ void exitApp();
 void update();
 void render();
 
-GLFWwindow *window = nullptr;
-int width = 1080;
-int height = 720;
+static GLFWwindow *window = nullptr;
+static int width = 1080;
+static int height = 720;
 
-int fps;
-app_duration time_step;
-app_duration lag(0);
-app_time time_end;
-app_time time_start;
-long long elapsed_time = 0;
+static int fps;
+static app_duration time_step;
+static app_duration lag(0);
+static app_time time_end;
+static app_time time_start;
+static long long elapsed_time = 0;
 
-int updates = 0;
-int frames = 0;
+static int updates = 0;
+static int frames = 0;
 
-trade_history::App *app = nullptr;
+static trade_history::App *app = nullptr;
 
 int main()
 {
@@ -48,7 +48,6 @@ int main()
 		time_start = app_clock::now();
 		app_duration delta_time = time_start - time_end;
 		time_end = time_start;
-
 		lag += delta_time;
 		
 		while (lag >= time_step)
@@ -57,10 +56,8 @@ int main()
 			update(); // update at a fixed rate each time
 			updates++;
 		}
-		
 		render();
 		frames++;
-
 		elapsed_time += delta_time.count();
 		if (elapsed_time >= 1'000'000'000)
 		{
@@ -69,7 +66,6 @@ int main()
 			frames = 0;
 			updates = 0;
 		}
-
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	} while (!glfwWindowShouldClose(window));
@@ -121,6 +117,8 @@ bool setup()
 
 	glViewport(0, 0, width, height);
 	glClearColor(194.0f / 255.0f, 194.0f / 255.0f, 194.0f / 255.0f, 1.0f);
+
+	return true;
 }
 
 void exitApp()

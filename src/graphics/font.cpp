@@ -91,6 +91,34 @@ namespace trade_history
         FT_Done_FreeType(ft_library);
     }
 
+    void font::change_size(int32_t font_size)
+    {
+        FT_Set_Pixel_Sizes(ft_face, 0, font_size);
+
+        for (unsigned char c = 0; c < 128; c++)
+        {
+            // load character glyph 
+            if (FT_Load_Char(ft_face, c, FT_LOAD_RENDER))
+            {
+                std::cout << "ERROR::FREETYTPE: Failed to load Glyph" << std::endl;
+                continue;
+            }
+
+            glBindTexture(GL_TEXTURE_2D, Characters[c].TextureID);
+            glTexImage2D(
+                GL_TEXTURE_2D,
+                0,
+                GL_RED,
+                ft_face->glyph->bitmap.width,
+                ft_face->glyph->bitmap.rows,
+                0,
+                GL_RED,
+                GL_UNSIGNED_BYTE,
+                ft_face->glyph->bitmap.buffer
+            );
+        }
+    }
+
     void font::draw(const std::string &text, float x, float y, float scale, const glm::vec3 &color)
     {
         glm::vec3 clr = color;

@@ -34,6 +34,15 @@
     <ClCompile Include="src\graphics\texture_2d.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="src\core\component_pool.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\color.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\gui_components.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="ext\lib\glfw3.lib">
@@ -67,5 +76,7 @@
     </ClInclude>
     <ClInclude Include="src\graphics\shader_loader.h" />
     <ClInclude Include="src\graphics\texture_2d.h" />
+    <ClInclude Include="src\core\component_pool.h" />
+    <ClInclude Include="src\util\types.h" />
   </ItemGroup>
 </Project>

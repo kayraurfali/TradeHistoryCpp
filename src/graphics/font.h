@@ -22,6 +22,7 @@ namespace trade_history
 		static font make_font();
 
 		void load(const char *path, int32_t font_size);
+		void change_size(int32_t font_size);
 		void draw(const std::string &text, float x, float y, float scale, const glm::vec3 &color);
 	private:
 		static bool is_library_initialized;
